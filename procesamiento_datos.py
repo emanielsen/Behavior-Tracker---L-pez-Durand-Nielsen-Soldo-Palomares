@@ -19,14 +19,14 @@ def filtrar_por_participante(datos, id_participante):
 
     Returns 
     -------
-    datos_participante : lista
-    lista con los datos del participante (id_participante).    
+    dato : diccionario
+    diccionario con los datos del participante.    
 
     '''
     
-    if id_participante in datos:
-       datos_participante = datos[id_participante]
-       return datos_participante
+    for dato in datos: 
+        if dato["id"] == id_participante:
+            return dato
    
     
     else:
