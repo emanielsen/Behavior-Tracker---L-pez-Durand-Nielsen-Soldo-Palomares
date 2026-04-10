@@ -5,7 +5,7 @@ Created on Sat Apr  4 22:41:48 2026
 
 @author: emanielsen
 """
-archivo = open("BehaviorTracker_mock_data.csv", "r")
+archivo = open("Tomas Lopez Durand/GitHub/Behavior-Tracker---L-pez-Durand-Nielsen-Soldo-Palomares/data/BehaviorTracker_mock_data.csv", "r")
 lineas = archivo.readlines()
 
 for linea in lineas:
