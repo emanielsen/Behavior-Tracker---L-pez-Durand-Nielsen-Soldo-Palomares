@@ -49,9 +49,9 @@ def calcular_promedio_uso(datos):
         total = calcular_tiempo_total(datos)
         promedio = total / len(datos)
         return promedio
-    except:
-        print("no hay datos para calcular el promedio.") 
-        return 0
+    except ZeroDivisionError:
+        print("no se puede dividir por cero.") 
+
     
     
     

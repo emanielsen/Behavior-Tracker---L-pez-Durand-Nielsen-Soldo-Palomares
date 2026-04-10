@@ -5,6 +5,13 @@ Created on Sat Apr  4 22:41:48 2026
 
 @author: emanielsen
 """
+archivo = open("datos.csv", "r")
+lineas = archivo.readlines()
+
+for linea in lineas:
+    print(linea)
+    
+archivo.close()
 
 def parsear_linea(linea):
     '''
