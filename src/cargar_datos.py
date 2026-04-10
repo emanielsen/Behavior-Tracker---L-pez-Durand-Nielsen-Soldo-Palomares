@@ -42,9 +42,7 @@ def parsear_linea(linea):
     return lista_parseada
     
 
-parsear = parsear_linea(linea)
 
-print(parsear)
 
     
     
