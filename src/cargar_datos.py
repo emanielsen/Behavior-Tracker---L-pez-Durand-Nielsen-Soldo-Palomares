@@ -5,7 +5,7 @@ Created on Sat Apr  4 22:41:48 2026
 
 @author: emanielsen
 """
-archivo = open("datos.csv", "r")
+archivo = open("BehaviorTracker_mock_data.csv", "r")
 lineas = archivo.readlines()
 
 for linea in lineas:
@@ -41,11 +41,10 @@ def parsear_linea(linea):
     
     return lista_parseada
     
-    
-    
-    
-    
-    
+
+parsear = parsear_linea(linea)
+
+print(parsear)
 
     
     
