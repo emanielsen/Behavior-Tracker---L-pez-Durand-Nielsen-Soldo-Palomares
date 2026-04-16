@@ -26,7 +26,7 @@ while True:
 
 participante = filtrar_por_participante(dicc_participantes, id_part)
 promedio_uso = calcular_promedio_uso(participante)
-print(f"El promedio de uso del participante seleccionado es: {promedio_uso}")
 uso_por_app = calcular_uso_por_app(participante)
+print(f"El promedio de uso del participante seleccionado es: {promedio_uso}")
 print(f"El uso total {uso_por_app}")
 
