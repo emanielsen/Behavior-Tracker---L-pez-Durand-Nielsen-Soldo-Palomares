@@ -81,19 +81,19 @@ def cargar_datos_a_dicc(ruta):
                     "cantidad_uso": cantidad_uso,
                     "tiempo_uso": tiempo_uso
                     }
-            else:
-                fecha.append(registro[1])
-                app.append(registro[2])
-                cantidad_uso.append(registro[3])
-                tiempo_uso.append(registro[4])
+            
+            fecha.append(registro[1])
+            app.append(registro[2])
+            cantidad_uso.append(registro[3])
+            tiempo_uso.append(registro[4])
                 
-                registro_participante = {
-                    "id": id_participante,
-                    "fecha": fecha,
-                    "app": app,
-                    "cantidad_uso": cantidad_uso,
-                    "tiempo_uso": tiempo_uso
-                    }
+            registro_participante = {
+                "id": id_participante,
+                "fecha": fecha,
+                "app": app,
+                "cantidad_uso": cantidad_uso,
+                "tiempo_uso": tiempo_uso
+                }
             datos.append(registro_participante)
                 
 
