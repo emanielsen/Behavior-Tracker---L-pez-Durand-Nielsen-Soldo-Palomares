@@ -8,11 +8,13 @@ Created on Sat Apr  4 23:06:02 2026
 
 def filtrar_por_participante(datos, id_participante):
     '''
-    
+    Filtra los registros de un participante específico a partir de una lista de datos.
 
     Parameters
     ----------
     datos : lista
+        lista de diccionarios con información de participantes.
+    
     
     id_participante : int
         id del participante en cuestión del que serán buscados sus datos.
@@ -23,10 +25,12 @@ def filtrar_por_participante(datos, id_participante):
     diccionario con los datos del participante.    
 
     '''
+    resultados = []
     
     for dato in datos: 
         if dato["id"] == id_participante:
-            return dato
+            resultados.append(dato)
+            return resultados
    
     
     else:
