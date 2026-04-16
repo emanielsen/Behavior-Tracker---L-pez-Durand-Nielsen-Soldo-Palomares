@@ -33,11 +33,10 @@ def parsear_linea(linea):
         int2 = int(separar[3])
         int3 = int(separar[4])
     except ValueError:
-        print("")
-    
-    lista_parseada = [int1, str1, str2, int2, int3]
-    
-    return lista_parseada
+        return "error"
+    else:
+        lista_parseada = [int1, str1, str2, int2, int3]
+        return lista_parseada
     
 
 
@@ -66,6 +65,8 @@ def cargar_datos_a_dicc(ruta):
     with open(ruta, "r") as archivo:
         for linea in archivo:
             registro = parsear_linea(linea)
+            if registro == "error":
+                continue
             id_participante = registro[0]
             if id_participante not in datos:
                 datos[id_participante] = []
