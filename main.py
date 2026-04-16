@@ -5,9 +5,9 @@ Created on Wed Apr 15 12:07:15 2026
 @author: Tomas Lopez Durand
 """
 
-import cargar_datos
-import metricas
-import procesamiento_datos
+import src.cargar_datos
+import stc.metricas
+import stc.procesamiento_datos
 from cargar_datos import cargar_datos_a_dicc
 from metricas import calcular_promedio_uso
 from metricas import calcular_uso_por_app
