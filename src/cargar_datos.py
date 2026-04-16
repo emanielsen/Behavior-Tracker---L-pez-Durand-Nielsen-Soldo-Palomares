@@ -25,11 +25,15 @@ def parsear_linea(linea):
     '''
     lista_parseada = []
     separar = linea.split(",")
-    int1 = int(separar[0])
-    str1 = str(separar[1])
-    str2 = str(separar[2])
-    int2 = int(separar[3])
-    int3 = int(separar[4])
+    
+    try:
+        int1 = int(separar[0])
+        str1 = str(separar[1])
+        str2 = str(separar[2])
+        int2 = int(separar[3])
+        int3 = int(separar[4])
+    except ValueError:
+        print("")
     
     lista_parseada = [int1, str1, str2, int2, int3]
     
@@ -40,7 +44,7 @@ def parsear_linea(linea):
 
     
     
-def cargar_datos(ruta):
+def cargar_datos_a_dicc(ruta):
     '''
     Lee un archivo .CSV, parsea cada línea y organiza los datos en un diccionario 
     donde cada clave es un id de participante y su valor es una lista de registros del participante.
