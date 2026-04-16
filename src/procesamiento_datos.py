@@ -32,8 +32,7 @@ def filtrar_por_participante(datos, id_participante):
             resultados.append(dato)
             return resultados
    
-    
-    else:
-       return "no existe ese participante."
+        else:
+            return "No existe ese participante."
 
 #IMPORTAR LAS FUNCIONES DE METRICAS
