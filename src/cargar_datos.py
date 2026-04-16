@@ -62,6 +62,10 @@ def cargar_datos_a_dicc(ruta):
     '''
     
     datos = {}
+    fecha = []
+    app = []
+    cantidad_uso = []
+    tiempo_uso = []
     
     with open(ruta, "r") as archivo:
         for linea in archivo:
@@ -70,9 +74,29 @@ def cargar_datos_a_dicc(ruta):
                 continue
             id_participante = registro[0]
             if id_participante not in datos:
-                datos[id_participante] = []
+                registro_participante = {
+                    "id": id_participante,
+                    "fecha": fecha,
+                    "app": app,
+                    "cantidad_uso": cantidad_uso,
+                    "tiempo_uso": tiempo_uso
+                    }
+            else:
+                fecha.append(registro[1])
+                app.append(registro[2])
+                cantidad_uso.append(registro[3])
+                tiempo_uso.append(registro[4])
+                
+                registro_participante = {
+                    "id": id_participante,
+                    "fecha": fecha,
+                    "app": app,
+                    "cantidad_uso": cantidad_uso,
+                    "tiempo_uso": tiempo_uso
+                    }
+            datos.append(registro_participante)
+                
 
-            datos[id_participante].append(registro)
             
     return datos
        
