@@ -6,12 +6,12 @@ Created on Wed Apr 15 12:07:15 2026
 """
 
 import src.cargar_datos
-import stc.metricas
-import stc.procesamiento_datos
-from cargar_datos import cargar_datos_a_dicc
-from metricas import calcular_promedio_uso
-from metricas import calcular_uso_por_app
-from procesamiento_datos import filtrar_por_participante
+import src.metricas
+import src.procesamiento_datos
+from src.cargar_datos import cargar_datos_a_dicc
+from src.metricas import calcular_promedio_uso
+from src.metricas import calcular_uso_por_app
+from src.procesamiento_datos import filtrar_por_participante
 
 archivo = "data/BehaviorTracker_mock_data"
 
