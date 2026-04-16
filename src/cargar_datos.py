@@ -33,6 +33,7 @@ def parsear_linea(linea):
         int2 = int(separar[3])
         int3 = int(separar[4])
     except ValueError:
+        print(f"Error al parsear línea: {linea}")
         return "error"
     else:
         lista_parseada = [int1, str1, str2, int2, int3]
