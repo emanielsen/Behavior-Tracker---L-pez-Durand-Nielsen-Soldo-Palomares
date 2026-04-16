@@ -28,8 +28,7 @@ def filtrar_por_participante(datos, id_participante):
         if dato["id"] == id_participante:
             return dato
    
-    
-    else:
-       return "no existe ese participante."
+        else:
+            return "No existe ese participante."
 
 #IMPORTAR LAS FUNCIONES DE METRICAS
