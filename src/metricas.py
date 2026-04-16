@@ -50,7 +50,7 @@ def calcular_promedio_uso(datos):
         promedio = total / len(datos)
         return promedio
     except ZeroDivisionError:
-        print("no se puede dividir por cero.") 
+        print("No se puede dividir por cero.") 
 
     
     
