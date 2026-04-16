@@ -20,10 +20,13 @@ dicc_participantes = cargar_datos_a_dicc(archivo)
 while True:
     try:
         id_part = int(input("Ingrese el ID del participante al que se quiere buscar: "))
-    except ValueError:
-        
+        break
+    except ValueError as e:
+        print("ID ingresado es inválido. ", e)
 
 participante = filtrar_por_participante(dicc_participantes, id_part)
 promedio_uso = calcular_promedio_uso(participante)
+print(f"El promedio de uso del participante seleccionado es: {promedio_uso}")
 uso_por_app = calcular_uso_por_app(participante)
+print(f"El uso total {uso_por_app}")
 
