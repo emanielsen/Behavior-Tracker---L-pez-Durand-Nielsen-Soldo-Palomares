@@ -21,10 +21,9 @@ def calcular_tiempo_total(datos):
         suma de todo tiempo total (intensidad de uso).
 
     '''
-    suma = 0
-    for registro in datos:
-        tiempo = registro[4]
-        suma += tiempo
+    for dato in datos:
+        for participante in dato:
+            suma = sum(participante["tiempo_uso"])
     return suma
 
 
@@ -47,7 +46,7 @@ def calcular_promedio_uso(datos):
     '''
     try:
         total = calcular_tiempo_total(datos)
-        promedio = total / len(datos)
+        promedio = total / len(datos["tiempo_uso"])
         return promedio
     except ZeroDivisionError:
         print("No se puede dividir por cero.") 
@@ -71,14 +70,15 @@ def calcular_uso_por_app(datos):
 
     '''
     uso_apps = {}
+    cont = 0
 
-    for registro in datos:
-        app = registro[2]
-        tiempo = registro[4]
+    for app in datos["app"]:
+        tiempo = datos["tiempo_uso"][cont]
 
         if app not in uso_apps:
             uso_apps[app] = 0
 
         uso_apps[app] += tiempo
+        cont += 1
 
     return uso_apps
