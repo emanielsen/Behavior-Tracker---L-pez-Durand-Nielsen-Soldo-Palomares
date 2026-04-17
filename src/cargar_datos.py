@@ -61,42 +61,34 @@ def cargar_datos_a_dicc(ruta):
 
     '''
     
-    datos = {}
-    fecha = []
-    app = []
-    cantidad_uso = []
-    tiempo_uso = []
-    
+    datos = []
+    registro_participante = {}
+        
     with open(ruta, "r") as archivo:
         for linea in archivo:
             registro = parsear_linea(linea)
             if registro == "error":
                 continue
             id_participante = registro[0]
-            if id_participante not in datos:
-                registro_participante = {
+            if id_participante not in registro_participante:
+                registro_participante[id_participante] = {
                     "id": id_participante,
-                    "fecha": fecha,
-                    "app": app,
-                    "cantidad_uso": cantidad_uso,
-                    "tiempo_uso": tiempo_uso
+                    "fecha": [],
+                    "app": [],
+                    "cantidad_uso": [],
+                    "tiempo_uso": []
                     }
+                registro_participante[id_participante]["fecha"].append(registro[1])
+                registro_participante[id_participante]["app"].append(registro[2])
+                registro_participante[id_participante]["cantidad_uso"].append(registro[3])
+                registro_participante[id_participante]["tiempo_uso"].append(registro[4])
+            else:
+                registro_participante[id_participante]["fecha"].append(registro[1])
+                registro_participante[id_participante]["app"].append(registro[2])
+                registro_participante[id_participante]["cantidad_uso"].append(registro[3])
+                registro_participante[id_participante]["tiempo_uso"].append(registro[4])
             
-            fecha.append(registro[1])
-            app.append(registro[2])
-            cantidad_uso.append(registro[3])
-            tiempo_uso.append(registro[4])
-                
-            registro_participante = {
-                "id": id_participante,
-                "fecha": fecha,
-                "app": app,
-                "cantidad_uso": cantidad_uso,
-                "tiempo_uso": tiempo_uso
-                }
-            datos.append(registro_participante)
-                
-
+        datos.append(registro_participante)
             
     return datos
        
