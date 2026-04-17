@@ -18,15 +18,20 @@ archivo = "data/BehaviorTracker_mock_data.csv"
 dicc_participantes = cargar_datos_a_dicc(archivo)
 
 while True:
-    try:
-        id_part = int(input("Ingrese el ID del participante al que se quiere buscar: "))
-        break
-    except ValueError as e:
-        print("ID ingresado es inválido. ", e)
+    while True:
+        try:
+            id_part = int(input("Ingrese el ID del participante al que se quiere buscar: "))
+            break
+        except ValueError as e:
+            print("ID ingresado es inválido. ", e)
 
-participante = filtrar_por_participante(dicc_participantes, id_part)
-promedio_uso = calcular_promedio_uso(participante)
-uso_por_app = calcular_uso_por_app(participante)
-print(f"El promedio de uso del participante seleccionado es: {promedio_uso}")
-print(f"El uso total {uso_por_app}")
+    participante = filtrar_por_participante(dicc_participantes, id_part)
+    if participante == "No existe ese participante":
+        print("El participante elegido no fue encontrado")
+    else:
+        promedio_uso = calcular_promedio_uso(participante)
+        uso_por_app = calcular_uso_por_app(participante)
+        print(f"El promedio de uso del participante seleccionado es: {promedio_uso}")
+        print(f"El uso total {uso_por_app}")
+        break
 
