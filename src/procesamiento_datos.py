@@ -25,12 +25,11 @@ def filtrar_por_participante(datos, id_participante):
     diccionario con los datos del participante.    
 
     '''
-    resultados = []
     
     for dato in datos: 
-        if dato['id'] == id_participante:
-            resultados.append(dato)
-            return resultados
+        for participante in dato:
+            if participante == id_participante:
+                return dato[participante]
    
     return "No existe ese participante."
 
