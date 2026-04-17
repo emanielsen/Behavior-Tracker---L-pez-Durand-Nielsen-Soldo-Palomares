@@ -32,9 +32,9 @@ def parsear_linea(linea):
         str2 = str(separar[2])
         int2 = int(separar[3])
         int3 = int(separar[4])
-    except ValueError:
-        print(f"Error al parsear línea: {linea}")
-        return "error"
+    except:
+        raise ValueError(f"Error al parsear línea: {linea}")
+        
     else:
         lista_parseada = [int1, str1, str2, int2, int3]
         return lista_parseada
@@ -63,7 +63,7 @@ def cargar_datos_a_dicc(ruta):
     
     datos = []
     registro_participante = {}
-        
+    
     with open(ruta, "r") as archivo:
         for linea in archivo:
             registro = parsear_linea(linea)
@@ -71,24 +71,24 @@ def cargar_datos_a_dicc(ruta):
                 continue
             id_participante = registro[0]
             if id_participante not in registro_participante:
-                registro_participante[id_participante] = {
-                    "id": id_participante,
-                    "fecha": [],
-                    "app": [],
-                    "cantidad_uso": [],
-                    "tiempo_uso": []
-                    }
-                registro_participante[id_participante]["fecha"].append(registro[1])
-                registro_participante[id_participante]["app"].append(registro[2])
-                registro_participante[id_participante]["cantidad_uso"].append(registro[3])
-                registro_participante[id_participante]["tiempo_uso"].append(registro[4])
+               registro_participante[id_participante] = {
+                   "id": id_participante,
+                   "fecha": [],
+                   "app": [],
+                   "cantidad_uso": [],
+                   "tiempo_uso": []
+                   }
+               registro_participante[id_participante]["fecha"].append(registro[1])
+               registro_participante[id_participante]["app"].append(registro[2])
+               registro_participante[id_participante]["cantidad_uso"].append(registro[3])
+               registro_participante[id_participante]["tiempo_uso"].append(registro[4])
             else:
-                registro_participante[id_participante]["fecha"].append(registro[1])
-                registro_participante[id_participante]["app"].append(registro[2])
-                registro_participante[id_participante]["cantidad_uso"].append(registro[3])
-                registro_participante[id_participante]["tiempo_uso"].append(registro[4])
-            
-        datos.append(registro_participante)
+               registro_participante[id_participante]["fecha"].append(registro[1])
+               registro_participante[id_participante]["app"].append(registro[2])
+               registro_participante[id_participante]["cantidad_uso"].append(registro[3])
+               registro_participante[id_participante]["tiempo_uso"].append(registro[4])
+           
+            datos.append(registro_participante)
             
     return datos
        
