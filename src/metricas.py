@@ -21,9 +21,10 @@ def calcular_tiempo_total(datos):
         suma de todo tiempo total (intensidad de uso).
 
     '''
-    for dato in datos:
-        for participante in dato:
-            suma = sum(participante["tiempo_uso"])
+    suma = 0
+    for registro in datos:
+        tiempo = registro[4]
+        suma += tiempo
     return suma
 
 
