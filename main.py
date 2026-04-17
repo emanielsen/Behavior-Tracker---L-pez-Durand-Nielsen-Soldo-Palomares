@@ -26,7 +26,7 @@ while True:
             print("ID ingresado es inválido. ", e)
 
     participante = filtrar_por_participante(dicc_participantes, id_part)
-    if participante == "No existe ese participante":
+    if participante == "No existe ese participante.":
         print("El participante elegido no fue encontrado")
     else:
         promedio_uso = calcular_promedio_uso(participante)
