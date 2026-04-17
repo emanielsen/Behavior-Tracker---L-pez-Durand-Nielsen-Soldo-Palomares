@@ -28,7 +28,7 @@ def filtrar_por_participante(datos, id_participante):
     resultados = []
     
     for dato in datos: 
-        if dato["id"] == id_participante:
+        if dato['id'] == id_participante:
             resultados.append(dato)
             return resultados
    
