@@ -32,7 +32,7 @@ def parsear_linea(linea):
         str2 = str(separar[2])
         int2 = int(separar[3])
         int3 = int(separar[4])
-    except:
+    except Exception:
         raise ValueError(f"Error al parsear línea: {linea}")
         
     else:
