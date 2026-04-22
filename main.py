@@ -13,34 +13,41 @@ from src.metricas import calcular_promedio_uso
 from src.metricas import calcular_uso_por_app
 from src.procesamiento_datos import filtrar_por_participante
 
-<<<<<<< HEAD
+
 
 archivo = "data/BehaviorTracker_mock_data.csv"
 
-dicc_participantes = cargar_datos_a_dicc(archivo)
-=======
 try:
-    archivo = "data/BehaviorTracker_mock_data.csv"
     dicc_participantes = cargar_datos_a_dicc(archivo)
 except FileNotFoundError:
-    print("La dirección del archivo es erróneo.")
->>>>>>> 5704b9d8050afc6ad3a7ca5be66ba214283fc6e5
+    print("La dirección del archivo es errónea.")
+    dicc_participantes = None
+except Exception:
+    print("Error al procesar el archivo.")
+    dicc_participantes = None
+    
+if dicc_participantes is not None:
 
-while True:
     while True:
-        try:
-            id_part = int(input("Ingrese el ID del participante al que se quiere buscar: "))
-            break
-        except ValueError as e:
-            print("ID ingresado es inválido. ", e)
+        while True:
+            try:
+                id_part = int(input("Ingrese el ID del participante: "))
+                break
+            except ValueError as e:
+                print("ID ingresado es inválido.", e)
 
-    participante = filtrar_por_participante(dicc_participantes, id_part)
-    if participante == "No existe ese participante.":
-        print("El participante elegido no fue encontrado")
-    else:
-        promedio_uso = calcular_promedio_uso(participante)
-        uso_por_app = calcular_uso_por_app(participante)
-        print(f"El promedio de uso del participante seleccionado es: {promedio_uso}")
-        print(f"El uso total {uso_por_app}")
-        break
+        participante = filtrar_por_participante(dicc_participantes, id_part)
+
+        if participante == "No existe ese participante.":
+            print("El participante elegido no fue encontrado")
+        else:
+            promedio_uso = calcular_promedio_uso(participante)
+            uso_por_app = calcular_uso_por_app(participante)
+
+            if promedio_uso is None or uso_por_app is None:
+                print("Error en los datos del participante")
+            else:
+                print(f"El promedio de uso del participante seleccionado es: {promedio_uso}")
+                print(f"El uso total {uso_por_app}")
+                break
 
