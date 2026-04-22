@@ -21,6 +21,8 @@ def calcular_tiempo_total(datos):
         suma de todo tiempo total (intensidad de uso).
 
     '''
+    if "tiempo_uso" not in datos:
+        raise KeyError("no existe tiempo_uso")
     suma = sum(datos["tiempo_uso"])
     return suma
 
@@ -42,12 +44,14 @@ def calcular_promedio_uso(datos):
         promedio del tiempo de uso.
 
     '''
+    if "tiempo_uso" not in datos:
+        raise KeyError("tiempo_uso no existe")
     try:
         total = calcular_tiempo_total(datos)
         promedio = total / len(datos["tiempo_uso"])
         return promedio
     except ZeroDivisionError:
-        print("No se puede dividir por cero.") 
+        return 0
 
     
     
@@ -69,7 +73,15 @@ def calcular_uso_por_app(datos):
     '''
     uso_apps = {}
     cont = 0
-
+    if "app" not in datos:
+        raise KeyError("no existe la clave app")
+        
+    if "tiempo_uso" not in datos:
+        raise KeyError("no existe la clave tiempo_uso")
+    
+    if len(datos["app"]) != len(datos["tiempo_uso"]):
+        raise ValueError("Error, las listas no tienen el mismo tamaño") 
+   
     for app in datos["app"]:
         tiempo = datos["tiempo_uso"][cont]
 
