@@ -31,5 +31,5 @@ def filtrar_por_participante(datos, id_participante):
             if participante == id_participante:
                 return dato[participante]
    
-    return "No existe ese participante."
+    raise ValueError("No existe ese participante")
 
