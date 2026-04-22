@@ -13,10 +13,18 @@ from src.metricas import calcular_promedio_uso
 from src.metricas import calcular_uso_por_app
 from src.procesamiento_datos import filtrar_por_participante
 
+<<<<<<< HEAD
 
 archivo = "data/BehaviorTracker_mock_data.csv"
 
 dicc_participantes = cargar_datos_a_dicc(archivo)
+=======
+try:
+    archivo = "data/BehaviorTracker_mock_data.csv"
+    dicc_participantes = cargar_datos_a_dicc(archivo)
+except FileNotFoundError:
+    print("La dirección del archivo es erróneo.")
+>>>>>>> 5704b9d8050afc6ad3a7ca5be66ba214283fc6e5
 
 while True:
     while True:
