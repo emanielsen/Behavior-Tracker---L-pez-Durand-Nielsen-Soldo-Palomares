@@ -33,4 +33,3 @@ def filtrar_por_participante(datos, id_participante):
    
     return "No existe ese participante."
 
-#IMPORTAR LAS FUNCIONES DE METRICAS
